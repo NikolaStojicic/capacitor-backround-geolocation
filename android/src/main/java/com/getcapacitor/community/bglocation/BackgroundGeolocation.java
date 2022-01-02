@@ -214,7 +214,6 @@ public class BackgroundGeolocation extends Plugin {
     // Configuring
     Intent configIntent = new Intent(getContext(), LocationUpdatesService.class);
     configIntent.setAction(LocationUpdatesService.ACTION_CONFIGURE);
-    configIntent.putExtra("mainActivity", getBridge().getActivity().getClass().getCanonicalName());
     if (call.hasOption("notificationTitle"))
       configIntent.putExtra("notificationTitle", call.getString("notificationTitle"));
     if (call.hasOption("notificationText"))

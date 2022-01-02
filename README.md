@@ -1,11 +1,9 @@
 <h3 align="center">Capacitor Background Geolocation</h3>
+<h4 align="center">Changed some things to be compatible with Capcitor 3. (only bridge fixed, may not behave perfectly, but works for my usecase)</h4>
 <p align="center"><strong><code>capacitor-background-geolocation</code></strong></p>
 <p align="center">
   Capacitor plugin for enabling background geolocation service
 </p>
-
-[![npm version](https://badge.fury.io/js/capacitor-background-geolocation.svg)](https://badge.fury.io/js/capacitor-background-geolocation)
-![NPM Publish](https://github.com/seididieci/capacitor-backround-geolocation/workflows/NPM%20Publish/badge.svg)
 
 ## Maintainers
 
@@ -22,7 +20,7 @@ This plugin actually works only in android. It creates a foreground service (wit
 Using npm:
 
 ```bash
-npm install capacitor-background-geolocation
+npm install https://github.com/NikolaStojicic/capacitor-backround-geolocation
 ```
 
 Sync native files:
@@ -81,7 +79,7 @@ BackgroundGeolocation.addListener('onPermissions', (data: BgPermissions) => {
 BackgroundGeolocation.initialize({
   notificationText: 'Your app is running, tap to open.',
   notificationTitle: 'App Running',
-  updateInteval: 10000,
+  updateInteval: 1000, // property might not work
   requestedAccuracy: BgGeolocationAccuracy.HIGH_ACCURACY,
   // Small icon has to be in 'drawable' resources of your app
   // if you does not provide one (or it is not found) a fallback icon will be used.
@@ -116,23 +114,6 @@ Keep in mind that the plugin will send the service in the foreground when your A
 ### Android
 
 > ### Notice
->
-> Remember to add this plugin to your app main acctivity:
->
-> ```java
-> import com.getcapacitor.community.bglocation.BackgroundGeolocation;
->
-> //....
->
-> // Initializes the Bridge
-> this.init(savedInstanceState, new ArrayList<Class<? extends Plugin>>() {{
->   // Additional plugins you've installed go here
->
->   // <Your other plugins if any>
->
->   add(BackgroundGeolocation.class);
-> }});
-> ```
 >The `AndroidManifest.xml` should be automaticcaly filled with the right permissions through a `cap sync` command but sometimes it doesn't...<br/>
 >Check that there are `FOREGROUND_SERVICE` and `ACCESS_FINE_LOCATION` permissions. in your App Manifest.
 

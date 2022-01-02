@@ -53,7 +53,7 @@ public class LocationUpdatesService extends Service {
   private Location mLocation;
 
   // Configuration values
-  private int updateInterval = 10000;
+  private int updateInterval = 1000;
   private String notificationTitle;
   private String notificationText;
   private String mainActivityName;
